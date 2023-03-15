@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../../responsive.dart';
 import 'Area_info_Text.dart';
 import 'Coding.dart';
 import 'Knowledges.dart';
 import 'Skills.dart';
 import 'my_info.dart';
-import 'dart:html' as html;
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -87,28 +88,45 @@ class CVconnections extends StatelessWidget {
         const Spacer(),
         IconButton(
           onPressed: () {
-            html.window.open(
-                'https://www.linkedin.com/in/usman-siddiqui-6b1b0821b/',
-                "_blank");
+            // 'https://github.com/usmansiddiqui12321'
+            profile('https://www.linkedin.com/in/usman-siddiqui-6b1b0821b/',
+                context);
           },
           icon: SvgPicture.asset("assets/icons/linkedin.svg"),
         ),
-     
-        const Image(
-          image:  AssetImage(
-            "assets/icons/fb.png",
-          ),
-          width: 5,
-          height: 5,
+        IconButton(
+          onPressed: () {
+            // 'https://github.com/usmansiddiqui12321'
+            profile(
+                'https://github.com/lakshydeep-14/30FlutterTips/blob/new/pubspec.yaml',
+                context);
+          },
+          icon: SvgPicture.asset("assets/icons/linkedin.svg"),
         ),
         IconButton(
           onPressed: () {
-            html.window.open('https://github.com/usmansiddiqui12321', "_blank");
+            // 'https://github.com/usmansiddiqui12321'
+            profile('https://www.linkedin.com/in/usman-siddiqui-6b1b0821b/',
+                context);
           },
-          icon: SvgPicture.asset("assets/icons/github.svg"),
+          icon: SvgPicture.asset("assets/icons/linkedin.svg"),
         ),
         const Spacer(),
       ]),
     );
+  }
+}
+
+void profile(String host, BuildContext context) async {
+  Uri url = Uri.parse(host);
+  if (await canLaunchUrl(url)) {
+    try {
+      await launchUrl(
+        url,
+        mode: LaunchMode.platformDefault,
+      );
+    } catch (e) {
+      throw "Can't Launch Link due to : $e";
+    }
   }
 }

@@ -39,7 +39,9 @@ dependencies:
   flutter_svg:
   animated_text_kit:
   url_launcher:
-
+  webview_flutter:
+  font_awesome_flutter:
+  get:
 dev_dependencies:
   flutter_test:
     sdk: flutter
