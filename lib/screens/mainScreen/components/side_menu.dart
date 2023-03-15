@@ -6,6 +6,7 @@ import 'Coding.dart';
 import 'Knowledges.dart';
 import 'Skills.dart';
 import 'my_info.dart';
+import 'dart:html' as html;
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -84,16 +85,26 @@ class CVconnections extends StatelessWidget {
       color: const Color(0xff24242E),
       child: Row(children: [
         const Spacer(),
-        IconButton( 
-          onPressed: () {},
+        IconButton(
+          onPressed: () {
+            html.window.open(
+                'https://www.linkedin.com/in/usman-siddiqui-6b1b0821b/',
+                "_blank");
+          },
           icon: SvgPicture.asset("assets/icons/linkedin.svg"),
         ),
-        IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset("assets/icons/twitter.svg"),
+     
+        const Image(
+          image:  AssetImage(
+            "assets/icons/fb.png",
+          ),
+          width: 5,
+          height: 5,
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            html.window.open('https://github.com/usmansiddiqui12321', "_blank");
+          },
           icon: SvgPicture.asset("assets/icons/github.svg"),
         ),
         const Spacer(),
