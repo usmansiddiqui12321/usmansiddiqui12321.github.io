@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../responsive.dart';
 import 'Area_info_Text.dart';
 import 'Coding.dart';
 import 'Knowledges.dart';
