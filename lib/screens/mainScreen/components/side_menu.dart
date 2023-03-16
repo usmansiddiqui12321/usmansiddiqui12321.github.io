@@ -7,6 +7,7 @@ import 'Coding.dart';
 import 'Knowledges.dart';
 import 'Skills.dart';
 import 'my_info.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -45,7 +46,11 @@ class SideMenu extends StatelessWidget {
                   const Divider(),
                   const SizedBox(height: defaultPadding / 2),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        profile(
+                            'https://drive.google.com/uc?export=download&id=1SSpHcjTEslqqtpguC3d_pLqqC-IIrZ-S',
+                            context);
+                      },
                       child: FittedBox(
                         child: Row(
                           children: [
@@ -96,19 +101,16 @@ class CVconnections extends StatelessWidget {
         IconButton(
           onPressed: () {
             // 'https://github.com/usmansiddiqui12321'
-            profile(
-                'https://github.com/lakshydeep-14/30FlutterTips/blob/new/pubspec.yaml',
-                context);
+            profile('https://github.com/usmansiddiqui12321/', context);
           },
-          icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+          icon: SvgPicture.asset("assets/icons/github.svg"),
         ),
         IconButton(
           onPressed: () {
             // 'https://github.com/usmansiddiqui12321'
-            profile('https://www.linkedin.com/in/usman-siddiqui-6b1b0821b/',
-                context);
+            profile('https://twitter.com/MUsman12321/', context);
           },
-          icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+          icon: SvgPicture.asset("assets/icons/twitter.svg"),
         ),
         const Spacer(),
       ]),
@@ -118,14 +120,28 @@ class CVconnections extends StatelessWidget {
 
 void profile(String host, BuildContext context) async {
   Uri url = Uri.parse(host);
-  if (await canLaunchUrl(url)) {
-    try {
-      await launchUrl(
-        url,
-        mode: LaunchMode.platformDefault,
-      );
-    } catch (e) {
-      throw "Can't Launch Link due to : $e";
+  // ignore: use_build_context_synchronously
+  if (kIsWeb) {
+    if (await canLaunchUrl(url)) {
+      try {
+        await launchUrl(
+          url,
+          mode: LaunchMode.platformDefault,
+        );
+      } catch (e) {
+        throw "Can't Launch Link due to : $e";
+      }
+    }
+  } else {
+    if (!await canLaunchUrl(url)) {
+      try {
+        await launchUrl(
+          url,
+          mode: LaunchMode.platformDefault,
+        );
+      } catch (e) {
+        throw "Can't Launch Link due to : $e";
+      }
     }
   }
 }
