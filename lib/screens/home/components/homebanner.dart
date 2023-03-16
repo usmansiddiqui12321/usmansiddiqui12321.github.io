@@ -77,8 +77,8 @@ class AnimatedBuildText extends StatelessWidget {
             const SizedBox(width: defaultPadding / 2),
           const Text("I build "),
           Responsive.isMobile(context)
-              ? Expanded(child: const AnimatedText())
-              : AnimatedText(),
+              ? const Expanded(child: AnimatedText())
+              : const AnimatedText(),
           if (!Responsive.isMobileLarge(context))
             const SizedBox(width: defaultPadding / 2),
           if (!Responsive.isMobileLarge(context)) const FlutterCodedText(),
