@@ -63,6 +63,7 @@ class ProjectsGridView extends StatelessWidget {
           Get.to(DetailedPage(
             videoPath: demo_projects[index].videopath!.toString(),
             title: demo_projects[index].title!.toString(),
+            description: demo_projects[index].description!.toString(),
           ));
         },
         child: Container(
@@ -90,6 +91,7 @@ class ProjectsGridView extends StatelessWidget {
                 onPressed: () {
                   Get.to(DetailedPage(
                     videoPath: "videos/covid.mp4",
+                    description: demo_projects[index].description!.toString(),
                     title: demo_projects[index].title!.toString(),
                   ));
                 },
