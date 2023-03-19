@@ -40,16 +40,17 @@ class HomeBanner extends StatelessWidget {
                 const SizedBox(height: defaultPadding),
                 if (!Responsive.isMobileLarge(context))
                   ElevatedButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: defaultPadding * 2,
-                              vertical: defaultPadding),
-                          backgroundColor: primaryColor),
-                      child: const Text(
-                        "Explore Now",
-                        style: TextStyle(color: darkColor),
-                      ))
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: defaultPadding * 2,
+                            vertical: defaultPadding),
+                        backgroundColor: primaryColor),
+                    child: const Text(
+                      "Explore Now",
+                      style: TextStyle(color: darkColor),
+                    ),
+                  ),
               ],
             ),
           )
