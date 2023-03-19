@@ -42,6 +42,7 @@ dependencies:
   webview_flutter:
   font_awesome_flutter:
   get:
+  video_player:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +69,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - videos/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

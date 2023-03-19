@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:portfolio/responsive.dart';
+import 'package:portfolio/screens/Detailed%20Screen/DetailedScreen.dart';
 import '../../../constants.dart';
 import '../../../models/Project.dart';
 
@@ -14,10 +17,11 @@ class MyProjects extends StatelessWidget {
           "My Projects",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        const Responsive(
+        Responsive(
             mobile: ProjectsGridView(
               childAspectRatio: 1.7,
               crossAxisCount: 1,
+              // NextPage: ()=> Get.to(DetailedPage(videoPath: '',))),
             ),
             mobileLarge: ProjectsGridView(
               crossAxisCount: 2,
@@ -32,12 +36,15 @@ class MyProjects extends StatelessWidget {
 }
 
 class ProjectsGridView extends StatelessWidget {
-  const ProjectsGridView(
-      {Key? key, this.crossAxisCount = 3, this.childAspectRatio = 1.3})
-      : super(key: key);
+  const ProjectsGridView({
+    Key? key,
+    this.crossAxisCount = 3,
+    this.childAspectRatio = 1.3,
+  }) : super(key: key);
   final int crossAxisCount;
   final double childAspectRatio;
-
+  // final void Function() NextPage;
+  // final String videoPath;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -51,35 +58,48 @@ class ProjectsGridView extends StatelessWidget {
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => Container(
-        decoration: BoxDecoration(
-            color: secondaryColor, borderRadius: BorderRadius.circular(20)),
-        padding: const EdgeInsets.all(defaultPadding),
-        child: Wrap(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              demo_projects[index].title!.toString(),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: defaultPadding / 2),
-            Text(
-              demo_projects[index].description!.toString(),
-              maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(height: 1.2),
-            ),
-            // const SizedBox(height: defaultPadding / 2),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Read more >>',
-                style: TextStyle(color: primaryColor),
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () {
+          Get.to(DetailedPage(
+            videoPath: demo_projects[index].videopath!.toString(),
+            title: demo_projects[index].title!.toString(),
+          ));
+        },
+        child: Container(
+          decoration: BoxDecoration(
+              color: secondaryColor, borderRadius: BorderRadius.circular(20)),
+          padding: const EdgeInsets.all(defaultPadding),
+          child: Wrap(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                demo_projects[index].title!.toString(),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
-            ),
-          ],
+              const SizedBox(height: defaultPadding / 2),
+              Text(
+                demo_projects[index].description!.toString(),
+                maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(height: 1.2),
+              ),
+              // const SizedBox(height: defaultPadding / 2),
+              TextButton(
+                onPressed: () {
+                  Get.to(DetailedPage(
+                    videoPath: "videos/covid.mp4",
+                    title: demo_projects[index].title!.toString(),
+                  ));
+                },
+                child: const Text(
+                  'Read more >>',
+                  style: TextStyle(color: primaryColor),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
