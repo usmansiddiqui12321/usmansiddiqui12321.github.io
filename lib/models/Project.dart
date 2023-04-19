@@ -13,10 +13,10 @@ List<Project> demo_projects = [
     videopath: "videos/socialmedia.mp4",
   ),
   Project(
-    title: "E-Commerce Complete App",
+    title: "CRUD",
     description:
         "In the first part of our complete e-commerce app, we show you how you can create a nice clean onboarding screen for your e-commerce app that can run both Andriod and iOS devices because it builds with flutter. Then on the second episode, we build a Sign in, Forgot Password screen with a custom error indicator.",
-    videopath: "videos/covid.mp4",
+    videopath: "videos/CRUD.mp4",
   ),
   Project(
     title: "Outlook Email App Redesign - Flutter Fully Responsive Design UI",
