@@ -17,11 +17,10 @@ class MyProjects extends StatelessWidget {
           "My Projects",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        Responsive(
+        const Responsive(
             mobile: ProjectsGridView(
               childAspectRatio: 1.7,
               crossAxisCount: 1,
-              // NextPage: ()=> Get.to(DetailedPage(videoPath: '',))),
             ),
             mobileLarge: ProjectsGridView(
               crossAxisCount: 2,
@@ -79,7 +78,7 @@ class ProjectsGridView extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              const SizedBox(height: defaultPadding / 2),
+              const SizedBox(height: defaultPadding),
               Text(
                 demo_projects[index].description!.toString(),
                 maxLines: Responsive.isMobileLarge(context) ? 3 : 4,

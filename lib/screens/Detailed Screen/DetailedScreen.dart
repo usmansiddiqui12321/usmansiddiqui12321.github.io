@@ -4,13 +4,12 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/screens/mainScreen/main_screen.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../models/Project.dart';
 import '../../responsive.dart';
 
 class DetailedPage extends StatefulWidget {
   final String videoPath, title, description;
-  DetailedPage(
-      {required this.videoPath,
+  const DetailedPage(
+      {super.key, required this.videoPath,
       required this.title,
       required this.description});
 
@@ -168,7 +167,7 @@ class GithubButton extends StatelessWidget {
                 color: secondaryColor,
               ),
               const SizedBox(width: 4.0),
-              Flexible(
+              const Flexible(
                 child: Text(
                   'Github Link',
                   style: TextStyle(

@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/screens/home/homescreen.dart';
 
 import 'constants.dart';
-import 'screens/mainScreen/main_screen.dart';
 
 void main() {
   runApp(MyApp());
