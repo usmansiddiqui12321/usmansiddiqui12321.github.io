@@ -1,17 +1,22 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/screens/mainScreen/main_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../responsive.dart';
 
 class DetailedPage extends StatefulWidget {
-  final String videoPath, title, description;
-  const DetailedPage(
-      {super.key, required this.videoPath,
-      required this.title,
-      required this.description});
+  final String videoPath, title, description, gitlink;
+  const DetailedPage({
+    super.key,
+    required this.videoPath,
+    required this.title,
+    required this.description,
+    required this.gitlink,
+  });
 
   @override
   _DetailedPageState createState() => _DetailedPageState();
@@ -117,14 +122,21 @@ class _DetailedPageState extends State<DetailedPage> {
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 20),
-                      Text(
-                        widget.description,
-                        maxLines: Responsive.isMobileLarge(context) ? 4 : 10,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(height: 1.2),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Text(
+                            widget.description,
+                            maxLines:
+                                Responsive.isMobileLarge(context) ? 4 : 10,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(height: 1.2),
+                          ),
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      GithubButton(onPressed: () {})
+                      const SizedBox(height: 20),
+                      GithubButton(onPressed: () {
+                        gitlink(widget.gitlink, context);
+                      })
                     ],
                   ),
                 ),
@@ -181,5 +193,33 @@ class GithubButton extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void gitlink(String host, BuildContext context) async {
+  Uri url = Uri.parse(host);
+  // ignore: use_build_context_synchronously
+  if (kIsWeb) {
+    if (await canLaunchUrl(url)) {
+      try {
+        await launchUrl(
+          url,
+          mode: LaunchMode.platformDefault,
+        );
+      } catch (e) {
+        throw "Can't Launch Link due to : $e";
+      }
+    }
+  } else {
+    if (!await canLaunchUrl(url)) {
+      try {
+        await launchUrl(
+          url,
+          mode: LaunchMode.platformDefault,
+        );
+      } catch (e) {
+        throw "Can't Launch Link due to : $e";
+      }
+    }
   }
 }

@@ -46,7 +46,6 @@ class ProjectsGridView extends StatelessWidget {
   // final String videoPath;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -63,6 +62,7 @@ class ProjectsGridView extends StatelessWidget {
             videoPath: demo_projects[index].videopath!.toString(),
             title: demo_projects[index].title!.toString(),
             description: demo_projects[index].description!.toString(),
+            gitlink: demo_projects[index].gitlink!.toString(),
           ));
         },
         child: Container(
@@ -89,8 +89,9 @@ class ProjectsGridView extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Get.to(DetailedPage(
-                    videoPath: "videos/covid.mp4",
+                    videoPath: demo_projects[index].videopath!.toString(),
                     description: demo_projects[index].description!.toString(),
+                    gitlink: demo_projects[index].gitlink!.toString(),
                     title: demo_projects[index].title!.toString(),
                   ));
                 },
