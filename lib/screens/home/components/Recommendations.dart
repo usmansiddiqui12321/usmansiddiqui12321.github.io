@@ -19,7 +19,7 @@ class Recommendations extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recommendations",
+            "Education",
             style: textTheme.titleLarge,
           ),
           const SizedBox(height: defaultPadding),
@@ -27,12 +27,12 @@ class Recommendations extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: List<Widget>.generate(
-                demo_recommendations.length,
+                demo_Educations.length,
                 (index) => Padding(
                   padding: const EdgeInsets.only(right: defaultPadding),
-                  child: RecommendationCard(
+                  child: EducationCard(
                     textTheme: textTheme,
-                    recommendation: demo_recommendations[index],
+                    education: demo_Educations[index],
                   ),
                 ),
               ),

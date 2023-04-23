@@ -1,34 +1,24 @@
 // ignore: file_names
-class Recommendation {
+class Education {
   final String? name, source, text;
 
-  Recommendation({this.name, this.source, this.text});
+  Education({this.name, this.source, this.text});
 }
 
-// ignore: non_constant_identifier_names
-final List<Recommendation> demo_recommendations = [
-  Recommendation(
-    name: "Kolapo Obanewa",
-    source: "Linkedin",
-    text:
-        "I have had the pleasure of working with Anwar on two flutter projects and what strikes me the most about his work is his ability to write clean and reusable codes with best practices. He is hardworking and makes it so easy to transcribe ideas into beautiful and testable flutter apps. He is a Flutter/Dart gem and has my highest recommendation",
-  ),
-  Recommendation(
-    name: "Reza Shahbazi",
-    source: "Linkedin",
-    text:
-        "Abu is great asset for any organization. It's a true pleasure working with him at TakeIn. His flutter skill is amazing as well as his professionalism and being a good team player. Abu's problem solving skill is also one of his great skills.",
-  ),
-  Recommendation(
-    name: "Diadem",
-    source: "YouTube",
-    text:
-        "I like your way you doing your project and you taught us. After I watch this I like and hit the subscribe button and then watch your video playlist one by one!! Within three hours, I learned a lot! I share your channel in my college WhatsApp group!",
-  ),
-  Recommendation(
-    name: "Roshan Shetty",
-    source: "YouTube",
-    text:
-        "Very straightforward, professional and also the best flutter videos in the youtube! It will be great if you add some comments to your steps with 0.5 seconds pause before implementing this step. By meaning of steps, I mean not the basic, but structural steps, like 10-20 steps per video. However, thank you very much!",
-  ),
+final List<Education> demo_Educations = [
+  Education(
+      name: "UBIT",
+      source: "Currently",
+      text:
+          'UBIT KU (University of Karachi) is a prestigious institution for higher education in Pakistan, offering a range of undergraduate and graduate programs in the field of computer science and technology. \nEstablished in 2000, it has grown to become one of the leading computer science schools in the country. \nThe faculty at UBIT KU comprises highly qualified professors with extensive industry experience, ensuring that students receive a well-rounded education. \nWith its state-of-the-art facilities and emphasis on practical learning, UBIT KU provides a dynamic learning environment for students to excel in their careers. \n'),
+  Education(
+      name: "Adamjee",
+      source: "College - Secondary Educaiton",
+      text:
+          'Adamjee Govt Science College is a renowned institution of higher education in Karachi, Pakistan.\nIt was established in 1961 and has since been providing quality education in science and humanities to students.\nThe college has produced numerous distinguished alumni who have excelled in their fields and made significant contributions to society.\nWith its state-of-the-art facilities and highly qualified faculty, Adamjee Govt Science College continues to be a top choice for students seeking higher education.'),
+  Education(
+      name: "The Educators",
+      source: "School - Primary Education",
+      text:
+          'The Educators is a private school system in Pakistan, founded in 2002 with the aim of providing quality education to students. \nThe school has a network of campuses across the country, offering education from pre-school to higher secondary levels. \nThe Educators emphasizes modern teaching methods and a student-centered approach to learning, with a focus on developing critical thinking and problem-solving skills. \nWith its experienced faculty and emphasis on academic excellence, The Educators has become a popular choice for parents seeking quality education for their children. \n'),
 ];

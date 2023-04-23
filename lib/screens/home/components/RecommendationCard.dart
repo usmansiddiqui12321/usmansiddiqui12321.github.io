@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/Recommendation.dart';
 
-class RecommendationCard extends StatelessWidget {
-  const RecommendationCard({
+class EducationCard extends StatelessWidget {
+  const EducationCard({
     super.key,
     required this.textTheme,
-    required this.recommendation,
+    required this.education,
   });
-  final Recommendation recommendation;
+  final Education education;
   final TextTheme textTheme;
 
   @override
@@ -21,15 +21,15 @@ class RecommendationCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            recommendation.name!,
+            education.name!,
             style: textTheme.titleSmall,
           ),
           Text(
-            recommendation.source!,
+            education.source!,
           ),
           const SizedBox(height: defaultPadding),
           Text(
-            recommendation.text!,
+            education.text!,
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(height: 1.5),

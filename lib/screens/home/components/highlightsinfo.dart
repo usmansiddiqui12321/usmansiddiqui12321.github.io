@@ -12,7 +12,8 @@ class HighlightsInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+      padding: const EdgeInsets.symmetric(
+          vertical: defaultPadding, horizontal: defaultPadding),
       child: Responsive.isMobileLarge(context)
           ? Column(
               children: [
@@ -21,17 +22,17 @@ class HighlightsInfo extends StatelessWidget {
                   children: const [
                     HighLights(
                       counter: AnimatedCounter(
-                        text: 'K+',
-                        value: 119,
+                        text: 'th',
+                        value: 4,
                       ),
-                      label: "Subscriber",
+                      label: " Year of University",
                     ),
                     HighLights(
                       counter: AnimatedCounter(
                         text: '+',
-                        value: 40,
+                        value: 2,
                       ),
-                      label: "Videos",
+                      label: " years of Practicing",
                     ),
                   ],
                 ),
@@ -42,16 +43,16 @@ class HighlightsInfo extends StatelessWidget {
                       HighLights(
                         counter: AnimatedCounter(
                           text: '+',
-                          value: 30,
+                          value: 20,
                         ),
-                        label: "GitHub Projects",
+                        label: " GitHub Projects",
                       ),
                       HighLights(
                         counter: AnimatedCounter(
-                          text: 'K+',
-                          value: 13,
+                          text: '',
+                          value: 2,
                         ),
-                        label: "Stars",
+                        label: " Courses",
                       ),
                     ])
               ],
@@ -61,31 +62,31 @@ class HighlightsInfo extends StatelessWidget {
               children: const [
                 HighLights(
                   counter: AnimatedCounter(
-                    text: 'K+',
-                    value: 119,
+                    text: 'th',
+                    value: 4,
                   ),
-                  label: "Subscriber",
+                  label: " Year of University",
                 ),
                 HighLights(
                   counter: AnimatedCounter(
                     text: '+',
-                    value: 40,
+                    value: 2,
                   ),
-                  label: "Videos",
+                  label: " years of Practicing",
                 ),
                 HighLights(
                   counter: AnimatedCounter(
                     text: '+',
-                    value: 30,
+                    value: 20,
                   ),
-                  label: "GitHub Projects",
+                  label: " GitHub Projects",
                 ),
                 HighLights(
                   counter: AnimatedCounter(
-                    text: 'K+',
-                    value: 13,
+                    text: '',
+                    value: 2,
                   ),
-                  label: "Stars",
+                  label: " Courses",
                 ),
               ],
             ),
