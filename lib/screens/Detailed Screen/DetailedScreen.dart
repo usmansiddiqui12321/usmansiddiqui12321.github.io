@@ -179,7 +179,7 @@ class GithubButton extends StatelessWidget {
                 color: secondaryColor,
               ),
               const SizedBox(width: 4.0),
-              const Flexible(
+              const Expanded(
                 child: Text(
                   'Github Link',
                   style: TextStyle(

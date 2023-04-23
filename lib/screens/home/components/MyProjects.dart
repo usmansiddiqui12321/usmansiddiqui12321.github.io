@@ -13,9 +13,12 @@ class MyProjects extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "My Projects",
-          style: Theme.of(context).textTheme.titleLarge,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "My Projects",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
         ),
         const Responsive(
             mobile: ProjectsGridView(
