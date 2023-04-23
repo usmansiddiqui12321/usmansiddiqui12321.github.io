@@ -45,7 +45,7 @@ class HighlightsInfo extends StatelessWidget {
                           text: '+',
                           value: 20,
                         ),
-                        label: " GitHub Projects",
+                        label: " GitHub Repositories",
                       ),
                       HighLights(
                         counter: AnimatedCounter(
