@@ -156,7 +156,7 @@ class GithubButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
+    return  (
       fit: FlexFit.loose,
       child: ElevatedButton(
         onPressed: onPressed,
