@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -19,10 +18,12 @@ class AnimatedCounter extends StatelessWidget {
         duration: defaultDuration,
         builder: (context, value, child) => Text(
               "$value$text",
+              overflow: TextOverflow.ellipsis,
               style: Theme.of(context)
                   .textTheme
                   .titleLarge
-                  ?.copyWith(color: primaryColor),
+                  ?.copyWith(color: primaryColor)
+                  .copyWith(),
             ));
   }
 }

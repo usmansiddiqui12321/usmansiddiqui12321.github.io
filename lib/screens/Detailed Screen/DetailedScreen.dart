@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/screens/Detailed%20Screen/Components/github_button.dart';
+import 'package:portfolio/screens/Detailed%20Screen/Components/play_button.dart';
 import 'package:portfolio/screens/mainScreen/main_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../responsive.dart';
@@ -19,10 +19,10 @@ class DetailedPage extends StatefulWidget {
   });
 
   @override
-  _DetailedPageState createState() => _DetailedPageState();
+  DetailedPageState createState() => DetailedPageState();
 }
 
-class _DetailedPageState extends State<DetailedPage> {
+class DetailedPageState extends State<DetailedPage> {
   late VideoPlayerController controller;
 
   @override
@@ -54,94 +54,153 @@ class _DetailedPageState extends State<DetailedPage> {
       // backgroundColor: Colors.black,
       body: MainScreen(
         children: [
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
+          if (Responsive.isMobileLarge(context))
+            SizedBox(
+              // height: size.height,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const SizedBox(height: 20),
-                    if (controller.value.isInitialized)
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: SizedBox(
-                          height: MediaQuery.of(context).size.height * .74,
-                          width: MediaQuery.of(context).size.width *
-                              .75, //perfect for WEB
-                          child: VideoPlayer(controller),
-                        ),
-                      )
-                    else
-                      const CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                      ),
-                    const SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          controller.value.isPlaying
-                              ? controller.pause()
-                              : controller.play();
-                        });
-                      },
-                      child: CircleAvatar(
-                        backgroundColor: primaryColor,
-                        child: Icon(
-                          controller.value.isPlaying
-                              ? Icons.pause
-                              : Icons.play_arrow,
-                          color: Colors.black,
-                        ),
-                      ),
+                    if (Responsive.isDesktop(context)) const Text("Desktop"),
+                    if (Responsive.isMobile(context)) const Text("Mobile"),
+                    if (Responsive.isMobileLarge(context))
+                      const Text("LargeMobile"),
+                    if (Responsive.isTablet(context)) const Text("Tablet"),
+                    Column(
+                      children: videoPlayerWithButton(context),
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    DescriptionBox(size: size, widget: widget)
                   ],
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: secondaryColor,
-                  border: Border.all(
-                    color: primaryColor,
-                    width: 2,
-                  ),
-                ),
-                height: size.height * .5,
-                width: size.width * .5,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            )
+          else
+            Row(
+              children: [
+                if (Responsive.isDesktop(context)) const Text("Desktop"),
+                if (Responsive.isMobile(context)) const Text("Mobile"),
+                if (Responsive.isMobileLarge(context))
+                  const Text("LargeMobile"),
+                if (Responsive.isTablet(context)) const Text("Tablet"),
+                Expanded(
+                  flex: 2,
                   child: Column(
-                    children: [
-                      Text(
-                        "Description",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      const SizedBox(height: 20),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Text(
-                            widget.description,
-                            maxLines:
-                                Responsive.isMobileLarge(context) ? 4 : 10,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(height: 1.2),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      GithubButton(onPressed: () {
-                        gitlink(widget.gitlink, context);
-                      })
-                    ],
+                    children: videoPlayerWithButton(context),
                   ),
                 ),
-              )
-            ],
+                const SizedBox(
+                  width: 10,
+                ),
+                DescriptionBox(size: size, widget: widget),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> videoPlayerWithButton(BuildContext context) {
+    return [
+      const SizedBox(height: 20),
+      if (controller.value.isInitialized)
+        Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * .74,
+                width:
+                    MediaQuery.of(context).size.width * .75, //perfect for WEB
+                child: VideoPlayer(controller),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: PlayButton(controller: controller),
+            ),
+          ],
+        )
+      else
+        const CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+        ),
+      const SizedBox(height: 20),
+      // if (Responsive.isDesktop(context) ||
+      //     Responsive.isTablet(context))
+      //   PlayButton(controller: controller),
+    ];
+  }
+}
+
+class DescriptionBox extends StatelessWidget {
+  const DescriptionBox({
+    Key? key,
+    required this.size,
+    required this.widget,
+  }) : super(key: key);
+
+  final Size size;
+  final DetailedPage widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 2),
+      child: Column(
+        children: [
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 1000),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: secondaryColor,
+              border: Border.all(
+                color: primaryColor,
+                width: 2,
+              ),
+            ),
+            height: descriptionHeight(context: context, size: size),
+            width: Responsive.isMobileLarge(context) ||
+                    Responsive.isMobile(context)
+                ? size.width * 0.8
+                : size.width * 0.4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    "Description",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SingleChildScrollView(
+                    primary: true,
+                    dragStartBehavior: DragStartBehavior.start,
+                    scrollDirection: Axis.vertical,
+                    child: SelectableText(
+                      widget.description,
+                      style: const TextStyle(height: 1.2),
+                      maxLines: Responsive.isMobileLarge(context) ? 7 : 8,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: GithubButton(onPressed: () {
+              gitlink(widget.gitlink, context);
+            }),
           ),
         ],
       ),
@@ -149,77 +208,40 @@ class _DetailedPageState extends State<DetailedPage> {
   }
 }
 
-class GithubButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const GithubButton({Key? key, required this.onPressed}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Flexible(
-      fit: FlexFit.loose,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          primary: primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          elevation: 4.0,
-        ),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * .13,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/icons/github.svg',
-                height: 24.0,
-                width: 24.0,
-                color: secondaryColor,
-              ),
-              const SizedBox(width: 4.0),
-              const Expanded(
-                child: Text(
-                  'Github Link',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: secondaryColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+double descriptionHeight({required BuildContext context, required Size size}) {
+  late double descriptionheight;
+  if (Responsive.isMobileLarge(context) && Responsive.isTablet(context)) {
+    descriptionheight = 230;
+  } else if (Responsive.isMobileLarge(context) &&
+      Responsive.isTablet(context) &&
+      Responsive.isMobile(context)) {
+    descriptionheight = size.height * .3;
+  } else if (Responsive.isDesktop(context)) {
+    descriptionheight = 250;
+  } else if (Responsive.isDesktop(context) && Responsive.isTablet(context)) {
+    descriptionheight = size.height * .4;
+  } else {
+    descriptionheight = 230;
   }
+
+  return descriptionheight;
 }
 
-void gitlink(String host, BuildContext context) async {
-  Uri url = Uri.parse(host);
-  // ignore: use_build_context_synchronously
-  if (kIsWeb) {
-    if (await canLaunchUrl(url)) {
-      try {
-        await launchUrl(
-          url,
-          mode: LaunchMode.platformDefault,
-        );
-      } catch (e) {
-        throw "Can't Launch Link due to : $e";
-      }
-    }
+double descriptionWidth({required BuildContext context, required Size size}) {
+  late double descriptionwidth;
+  if (Responsive.isMobileLarge(context) && Responsive.isTablet(context)) {
+    descriptionwidth = size.width * .8;
+  } else if (Responsive.isMobileLarge(context) &&
+      Responsive.isTablet(context) &&
+      Responsive.isMobile(context)) {
+    descriptionwidth = size.width * .8;
+  } else if (Responsive.isDesktop(context)) {
+    descriptionwidth = size.width * .4;
+  } else if (Responsive.isDesktop(context) && Responsive.isTablet(context)) {
+    descriptionwidth = size.width * .4;
   } else {
-    if (!await canLaunchUrl(url)) {
-      try {
-        await launchUrl(
-          url,
-          mode: LaunchMode.platformDefault,
-        );
-      } catch (e) {
-        throw "Can't Launch Link due to : $e";
-      }
-    }
+    descriptionwidth = size.width * .4;
   }
+
+  return descriptionwidth;
 }

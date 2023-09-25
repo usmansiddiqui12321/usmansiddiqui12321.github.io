@@ -24,17 +24,19 @@ class MainScreen extends StatelessWidget {
             ),
       drawer: const SideMenu(),
       body: Center(
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 1000),
           constraints: const BoxConstraints(maxWidth: maxWidth),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //Each Container taking 50% screen size
+              //Each AnimatedContainer taking 50% screen size
               if (Responsive.isDesktop(context))
                 Expanded(
                   // (2+7 =9 ) so 2/9 =  0.22 => 22% of screen
                   flex: 2,
-                  child: Container(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 1000),
                     color: Colors.white,
                     child: const SideMenu(),
                   ),

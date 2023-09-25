@@ -15,11 +15,11 @@ class HighlightsInfo extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
           vertical: defaultPadding, horizontal: defaultPadding),
       child: Responsive.isMobileLarge(context)
-          ? Column(
+          ? const Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     HighLights(
                       counter: AnimatedCounter(
                         text: 'th',
@@ -36,10 +36,10 @@ class HighlightsInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: defaultPadding),
+                SizedBox(height: defaultPadding),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       HighLights(
                         counter: AnimatedCounter(
                           text: '+',
@@ -57,9 +57,9 @@ class HighlightsInfo extends StatelessWidget {
                     ])
               ],
             )
-          : Row(
+          : const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 HighLights(
                   counter: AnimatedCounter(
                     text: 'th',
