@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 // We will modify it once we have our final design
 
 class Responsive extends StatelessWidget {
   final dynamic mobile;
+  final dynamic extrasmallmobile;
   final dynamic mobileLarge;
   final dynamic tablet;
   final dynamic desktop;
@@ -14,7 +16,11 @@ class Responsive extends StatelessWidget {
     this.tablet,
     required this.desktop,
     this.mobileLarge,
+    this.extrasmallmobile,
   }) : super(key: key);
+
+  static bool isExtraSmallMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width <= 372;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width <= 500;
@@ -37,8 +43,10 @@ class Responsive extends StatelessWidget {
       return tablet!;
     } else if (size.width >= 500 && mobileLarge != null) {
       return mobileLarge!;
-    } else {
+    } else if (size.width >= 372 && mobile != null) {
       return mobile;
+    } else {
+      return extrasmallmobile!;
     }
   }
 }

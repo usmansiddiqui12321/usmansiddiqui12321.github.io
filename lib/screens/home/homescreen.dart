@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/responsive.dart';
 import 'package:portfolio/screens/mainScreen/main_screen.dart';
 import 'components/MyProjects.dart';
 import 'components/Recommendations.dart';
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return MainScreen(
       children: [
+
         const HomeBanner(),
         const HighlightsInfo(),
         const MyProjects(),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -18,9 +17,12 @@ class HighLights extends StatelessWidget {
       children: [
         counter,
         const SizedBox(height: defaultPadding / 2),
-        Text(
-          label!,
-          style: Theme.of(context).textTheme.titleSmall,
+        SizedBox(
+          child: Text(
+            label!,
+            style: Theme.of(context).textTheme.titleSmall,
+            overflow: TextOverflow.ellipsis,
+          ),
         )
       ],
     );

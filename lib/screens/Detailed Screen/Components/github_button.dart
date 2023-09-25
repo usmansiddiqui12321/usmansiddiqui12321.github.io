@@ -26,16 +26,18 @@ class GithubButton extends StatelessWidget {
         child: SizedBox(
           width: MediaQuery.of(context).size.width * .1,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                'assets/icons/github.svg',
-                height: 24.0,
-                width: 24.0,
-                color: secondaryColor,
+              Center(
+                child: SvgPicture.asset(
+                  'assets/icons/github.svg',
+                  height: 24.0,
+                  width: 24.0,
+                  color: secondaryColor,
+                ),
               ),
               const SizedBox(width: 4.0),
-              if (Responsive.isDesktop(context) || Responsive.isTablet(context))
+              if (Responsive.isDesktop(context))
                 const Expanded(
                   child: Text(
                     'Github Link',

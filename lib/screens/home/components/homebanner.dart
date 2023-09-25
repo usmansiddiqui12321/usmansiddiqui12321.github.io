@@ -28,12 +28,16 @@ class HomeBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Discover my Amazing \nArt Space",
-                    style: Responsive.isDesktop(context)
-                        ? Theme.of(context).textTheme.headlineLarge?.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.white)
-                        : Theme.of(context).textTheme.headlineSmall?.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.white)),
+                Text(
+                  "Discover my Amazing \nArt Space",
+                  style: Responsive.isDesktop(context)
+                      ? Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          fontWeight: FontWeight.bold, color: Colors.white)
+                      : Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: MediaQuery.of(context).size.width * 0.05),
+                ),
                 if (!Responsive.isMobileLarge(context))
                   const SizedBox(height: defaultPadding / 2),
                 const AnimatedBuildText(),

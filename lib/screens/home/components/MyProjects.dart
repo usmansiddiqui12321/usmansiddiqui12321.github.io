@@ -21,6 +21,10 @@ class MyProjects extends StatelessWidget {
           ),
         ),
         const Responsive(
+          extrasmallmobile:ProjectsGridView(
+              childAspectRatio: 1.7,
+              crossAxisCount: 1,
+            ), 
             mobile: ProjectsGridView(
               childAspectRatio: 1.7,
               crossAxisCount: 1,

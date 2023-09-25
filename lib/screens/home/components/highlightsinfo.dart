@@ -13,9 +13,49 @@ class HighlightsInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          vertical: defaultPadding, horizontal: defaultPadding),
-      child: Responsive.isMobileLarge(context)
-          ? const Column(
+          vertical: (defaultPadding + 10), horizontal: defaultPadding / 2),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          double screenWidth = constraints.maxWidth;
+          if (screenWidth < 372) {
+            // Render content for screens less than 372 width
+            return const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                HighLights(
+                  counter: AnimatedCounter(
+                    text: 'th',
+                    value: 4,
+                  ),
+                  label: " Year of University",
+                ),
+                HighLights(
+                  counter: AnimatedCounter(
+                    text: '+',
+                    value: 2,
+                  ),
+                  label: " years of Practice",
+                ),
+                SizedBox(height: defaultPadding),
+                HighLights(
+                  counter: AnimatedCounter(
+                    text: '+',
+                    value: 20,
+                  ),
+                  label: " GitHub Repositories",
+                ),
+                HighLights(
+                  counter: AnimatedCounter(
+                    text: '',
+                    value: 2,
+                  ),
+                  label: " Courses",
+                ),
+              ],
+            );
+          } else if (screenWidth >= 372 && Responsive.isMobileLarge(context)) {
+            // Render content for screens 372 width or larger
+            return const Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,64 +72,75 @@ class HighlightsInfo extends StatelessWidget {
                         text: '+',
                         value: 2,
                       ),
-                      label: " years of Practicing",
+                      label: " years of Practice",
                     ),
                   ],
                 ),
                 SizedBox(height: defaultPadding),
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      HighLights(
-                        counter: AnimatedCounter(
-                          text: '+',
-                          value: 20,
-                        ),
-                        label: " GitHub Repositories",
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    HighLights(
+                      counter: AnimatedCounter(
+                        text: '+',
+                        value: 20,
                       ),
-                      HighLights(
-                        counter: AnimatedCounter(
-                          text: '',
-                          value: 2,
-                        ),
-                        label: " Courses",
+                      label: " GitHub Repositories",
+                    ),
+                    HighLights(
+                      counter: AnimatedCounter(
+                        text: '',
+                        value: 2,
                       ),
-                    ])
-              ],
-            )
-          : const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                HighLights(
-                  counter: AnimatedCounter(
-                    text: 'th',
-                    value: 4,
-                  ),
-                  label: " Year of University",
-                ),
-                HighLights(
-                  counter: AnimatedCounter(
-                    text: '+',
-                    value: 2,
-                  ),
-                  label: " years of Practicing",
-                ),
-                HighLights(
-                  counter: AnimatedCounter(
-                    text: '+',
-                    value: 20,
-                  ),
-                  label: " GitHub Projects",
-                ),
-                HighLights(
-                  counter: AnimatedCounter(
-                    text: '',
-                    value: 2,
-                  ),
-                  label: " Courses",
+                      label: " Courses",
+                    ),
+                  ],
                 ),
               ],
-            ),
+            );
+          } else {
+            return const Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: defaultPadding,
+                horizontal: defaultPadding,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  HighLights(
+                    counter: AnimatedCounter(
+                      text: 'th',
+                      value: 4,
+                    ),
+                    label: " Year of University",
+                  ),
+                  HighLights(
+                    counter: AnimatedCounter(
+                      text: '+',
+                      value: 2,
+                    ),
+                    label: " years of Practicing",
+                  ),
+                  HighLights(
+                    counter: AnimatedCounter(
+                      text: '+',
+                      value: 20,
+                    ),
+                    label: " GitHub Projects",
+                  ),
+                  HighLights(
+                    counter: AnimatedCounter(
+                      text: '',
+                      value: 2,
+                    ),
+                    label: " Courses",
+                  ),
+                ],
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
