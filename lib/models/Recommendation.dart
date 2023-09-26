@@ -1,4 +1,3 @@
-// ignore: file_names
 class Education {
   final String? name, source, text;
 

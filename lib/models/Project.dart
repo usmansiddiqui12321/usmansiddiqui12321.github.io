@@ -12,11 +12,25 @@ class Project {
 // ignore: non_constant_identifier_names
 List<Project> demo_projects = [
   Project(
+    gitlink: "https://github.com/usmansiddiqui12321/Stitch-Craft",
+    title: "Stitch Craft - Tailoring Made Easy",
+    description:
+        'Stitch Craft revolutionizes the way you approach custom tailoring. No more hassles of traditional fittings – we\'ve brought tailoring to your fingertips. \n\n📏 Precise Measurements: Our app simplifies the process of recording your measurements, ensuring a perfect fit for your attire. \n\n👗 Unleash Your Style: Explore a vast selection of fabrics, styles, and designs to create the outfit of your dreams. \n\n📦 Seamless Order Confirmation: Once you\'ve customized your order, our expert tailors meticulously review every detail, providing you with a confirmation of quality and satisfaction. \n\n💼 Order Tracking: Stay in the loop on the status of your order, from stitching to delivery, all within the app. \n\n🧵 Crafted with Care: Our skilled tailors pay attention to every detail, ensuring that your outfit is a true masterpiece. \n\nExperience the future of tailoring with Stitch Craft. Say yes to convenience, quality, and style. Stitch Craft - Tailored for You.',
+    videopath: "videos/StitchCraft.mp4",
+  ),
+  Project(
     gitlink: "https://github.com/usmansiddiqui12321/Firebase-Social-Media",
     title: "Firebase Social Media App",
     description:
         'The application allows users to sign in and sign out using Firebase authentication\n \nUsers can also reset their password using the forgot password feature provided by Firebase\n \nOnce logged in, users can send and receive messages to other users within the app\n \nUsers can create posts and edit their own posts as needed\n \nThe application also allows users to upload images to Firebase storage\n \nUser data is securely stored and accessed using Firebase secure cloud-based services\n \nThe app is designed with a clean and intuitive user interface, making it easy to navigate and use.\n \nThe app provides real-time updates on new messages and posts.\n \nUsers can customize their profile information, such as their name and profile picture.\n \nThe application is optimized for both iOS and Android, ensuring a seamless user experience across different devices.',
     videopath: "videos/socialmedia.mp4",
+  ),
+    Project(
+    gitlink: "https://github.com/usmansiddiqui12321/GoogleMapRoutes",
+    title: "Google Maps Routes",
+    description:
+        "Google Maps Routes simplifies your journey by providing custom pointers with detailed info windows about specific locations. Easily pinpoint your destination and create routes with polylines to guide your way. \n\n📍 Custom Info Windows: Discover detailed information about specific locations with our custom info windows, making your navigation experience informative and user-friendly. \n\n📍 Easy Pinpointing: Effortlessly pinpoint your destination on the map for quick and accurate navigation. \n\n📍 Route Creation: Create routes with polylines to visualize your path and ensure you never lose your way. \n\nWhether you're exploring new places or need precise directions, Google Maps Routes has got you covered. Navigate with confidence and ease. \n\n",
+    videopath: "videos/GoogleMapRoutes.mp4",
   ),
   Project(
     gitlink:
@@ -40,18 +54,5 @@ List<Project> demo_projects = [
         'The Payment-App-UI is a sleek and modern application designed to make mobile payments easy and convenient. \n \nThe application features a user-friendly profile page that allows users to easily manage their account information. \n \nThe notification section is also designed to be easily accessible, allowing users to quickly check their recent transactions and any other important updates. \n \nThe front page of the application is designed to be visually appealing, with a clean and modern layout that is easy to navigate. \n \nThe application also includes a bar code scanner, which makes it easy to scan and process payments quickly and securely. \n \nThe Balance page provides users with an at-a-glance view of their account balance and recent transactions. \n \nThe Recieve Money feature makes it easy for users to request payments from other users, making it simple and convenient to split bills and pay for goods and services. \n \nThe application also includes a rewards program, which allows users to earn points and redeem them for discounts and other rewards. \n \nWith its user-friendly interface and powerful features, the Payment-App-UI is an essential tool for anyone looking to make mobile payments quickly and easily. \n \nThe app is optimized for both Android and iOS, ensuring that users can access their accounts from any device.',
     videopath: "videos/payment.mp4",
   ),
-  Project(
-    gitlink: "https://github.com/usmansiddiqui12321/MoviesInfo",
-    title: "MovieInfo - Flutter Fully Responsive Design UI",
-    description:
-        'Provides information on a wide range of movies, both classic and modern. \n \nIncludes details on the cast and crew, ratings, and metascore for each movie. \n \nOffers a plot summary for each movie, providing users with a quick and easy way to get an overview of the film storyline. \n \nDesigned with a user-friendly interface and a search function that allows users to quickly find the movie they are looking for. \n \nA great resource for movie enthusiasts who are looking for quick and easy access to information about their favorite films. \n \n',
-    videopath: "videos/movieinfo.mp4",
-  ),
-  Project(
-    gitlink: "https://github.com/usmansiddiqui12321/Basic-eCommerce-App",
-    title: "Basic E-Commerce App",
-    description:
-        'The app features a fake login system, allowing users to create an account and save their shopping preferences. \n \nUsers can easily add items to their cart or add them to their favorites list for future reference. \n \nThe app also allows users to remove items from their favorites list or update the contents of their cart. \n \nA search function is included to help users quickly find the products they are looking for. \n \nThe app is designed with a clean and intuitive user interface, making it easy for users to navigate',
-    videopath: "videos/ecommerce.mp4",
-  ),
+
 ];
