@@ -1,5 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants.dart';
 import '../../../responsive.dart';
 
@@ -44,7 +46,10 @@ class HomeBanner extends StatelessWidget {
                 const SizedBox(height: defaultPadding),
                 if (!Responsive.isMobileLarge(context))
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      exploreNow(
+                          "https://github.com/usmansiddiqui12321", context);
+                    },
                     style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                             horizontal: defaultPadding * 2,
@@ -127,5 +132,33 @@ class FlutterCodedText extends StatelessWidget {
       ),
       TextSpan(text: ">")
     ]));
+  }
+}
+
+void exploreNow(String host, BuildContext context) async {
+  Uri url = Uri.parse(host);
+  // ignore: use_build_context_synchronously
+  if (kIsWeb) {
+    if (await canLaunchUrl(url)) {
+      try {
+        await launchUrl(
+          url,
+          mode: LaunchMode.platformDefault,
+        );
+      } catch (e) {
+        throw "Can't Launch Link due to : $e";
+      }
+    }
+  } else {
+    if (!await canLaunchUrl(url)) {
+      try {
+        await launchUrl(
+          url,
+          mode: LaunchMode.platformDefault,
+        );
+      } catch (e) {
+        throw "Can't Launch Link due to : $e";
+      }
+    }
   }
 }
