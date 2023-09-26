@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/responsive.dart';
 import 'package:portfolio/screens/mainScreen/main_screen.dart';
-import 'components/MyProjects.dart';
-import 'components/Recommendations.dart';
+import 'components/my_projects.dart';
+import 'components/recommendations.dart';
 import 'components/highlightsinfo.dart';
 import 'components/homebanner.dart';
 

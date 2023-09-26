@@ -21,8 +21,8 @@ class Skills extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
-        Row(
-          children: const [
+        const Row(
+          children: [
             Expanded(
               child: AnimatedCircularProgressIndicator(
                 percentage: .8,

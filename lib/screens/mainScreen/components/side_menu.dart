@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'Area_info_Text.dart';
-import 'Coding.dart';
-import 'Knowledges.dart';
-import 'Skills.dart';
+import 'area_info_text.dart';
+import 'coding.dart';
+import 'knowledges.dart';
+import 'skills.dart';
 import 'my_info.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 

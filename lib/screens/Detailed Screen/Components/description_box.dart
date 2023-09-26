@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/responsive.dart';
 import 'package:portfolio/screens/Detailed%20Screen/Components/github_button.dart';
-import 'package:portfolio/screens/Detailed%20Screen/DetailedScreen.dart';
+import 'package:portfolio/screens/Detailed%20Screen/detailed_screen.dart';
 
 class DescriptionBox extends StatelessWidget {
   const DescriptionBox({

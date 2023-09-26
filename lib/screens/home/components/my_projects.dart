@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:portfolio/responsive.dart';
-import 'package:portfolio/screens/Detailed%20Screen/DetailedScreen.dart';
+import 'package:portfolio/screens/Detailed%20Screen/detailed_screen.dart';
 import '../../../constants.dart';
-import '../../../models/Project.dart';
+import '../../../models/project.dart';
 
 class MyProjects extends StatelessWidget {
   const MyProjects({Key? key}) : super(key: key);
