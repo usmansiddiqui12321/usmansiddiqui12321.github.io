@@ -6,8 +6,6 @@ import 'package:portfolio/screens/Detailed%20Screen/Components/play_button.dart'
 import 'package:portfolio/screens/mainScreen/main_screen.dart';
 import 'package:video_player/video_player.dart';
 
-
-
 class DetailedPage extends StatefulWidget {
   final String videoPath, title, description, gitlink;
   const DetailedPage({

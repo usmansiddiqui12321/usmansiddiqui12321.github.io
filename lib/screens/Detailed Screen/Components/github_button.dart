@@ -12,44 +12,41 @@ class GithubButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      fit: FlexFit.loose,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor.withOpacity(.8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          elevation: 4.0,
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primaryColor.withOpacity(.8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
         ),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * .1,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: SvgPicture.asset(
-                  'assets/icons/github.svg',
-                  height: 24.0,
-                  width: 24.0,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+        elevation: 4.0,
+      ),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * .1,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: SvgPicture.asset(
+                'assets/icons/github.svg',
+                height: 24.0,
+                width: 24.0,
+                colorFilter:
+                    const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+              ),
+            ),
+            const SizedBox(width: 4.0),
+            if (Responsive.isDesktop(context))
+              const Expanded(
+                child: Text(
+                  'Github Link',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: secondaryColor,
+                      overflow: TextOverflow.ellipsis),
                 ),
               ),
-              const SizedBox(width: 4.0),
-              if (Responsive.isDesktop(context))
-                const Expanded(
-                  child: Text(
-                    'Github Link',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        color: secondaryColor,
-                        overflow: TextOverflow.ellipsis),
-                  ),
-                ),
-            ],
-          ),
+          ],
         ),
       ),
     );
