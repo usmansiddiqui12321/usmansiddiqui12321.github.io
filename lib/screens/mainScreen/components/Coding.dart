@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/animated_linear_progressIndicatord.dart';
+import 'package:portfolio/components/animated_linear_progress_indicator.dart';
 import '../../../constants.dart';
 
 class Coding extends StatelessWidget {

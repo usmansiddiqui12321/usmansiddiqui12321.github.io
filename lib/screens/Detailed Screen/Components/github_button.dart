@@ -33,7 +33,8 @@ class GithubButton extends StatelessWidget {
                   'assets/icons/github.svg',
                   height: 24.0,
                   width: 24.0,
-                  color: secondaryColor,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
               ),
               const SizedBox(width: 4.0),
