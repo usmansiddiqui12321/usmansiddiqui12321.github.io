@@ -92,22 +92,19 @@ class CVconnections extends StatelessWidget {
         const Spacer(),
         IconButton(
           onPressed: () {
-            // 'https://github.com/usmansiddiqui12321'
-            profile('https://www.linkedin.com/in/usman-siddiqui-6b1b0821b/',
+            profile('https://www.linkedin.com/in/muhammad-usman-siddiqui-0300d/',
                 context);
           },
           icon: SvgPicture.asset("assets/icons/linkedin.svg"),
         ),
         IconButton(
           onPressed: () {
-            // 'https://github.com/usmansiddiqui12321'
             profile('https://github.com/usmansiddiqui12321/', context);
           },
           icon: SvgPicture.asset("assets/icons/github.svg"),
         ),
         IconButton(
           onPressed: () {
-            // 'https://github.com/usmansiddiqui12321'
             profile('https://twitter.com/MUsman12321/', context);
           },
           icon: SvgPicture.asset("assets/icons/twitter.svg"),
@@ -120,7 +117,6 @@ class CVconnections extends StatelessWidget {
 
 void profile(String host, BuildContext context) async {
   Uri url = Uri.parse(host);
-  // ignore: use_build_context_synchronously
   if (kIsWeb) {
     if (await canLaunchUrl(url)) {
       try {
