@@ -48,7 +48,7 @@ class SideMenu extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         profile(
-                            'https://drive.google.com/uc?export=download&id=1jUIyZj1XYsvlqITEKef1_Io_dNF6bziK',
+                            'https://drive.google.com/uc?export=download&id=1QQU5ufh_5HP3cfzwZ4MCbbUtklEY5osL',
                             context);
                       },
                       child: FittedBox(
@@ -92,7 +92,8 @@ class CVconnections extends StatelessWidget {
         const Spacer(),
         IconButton(
           onPressed: () {
-            profile('https://www.linkedin.com/in/muhammad-usman-siddiqui-0300d/',
+            profile(
+                'https://www.linkedin.com/in/muhammad-usman-siddiqui-0300d/',
                 context);
           },
           icon: SvgPicture.asset("assets/icons/linkedin.svg"),
