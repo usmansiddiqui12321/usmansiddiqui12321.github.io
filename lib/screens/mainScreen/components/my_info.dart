@@ -16,10 +16,10 @@ class myinfo extends StatelessWidget {
           children: [
             const Spacer(flex: 2),
             const CircleAvatar(
-              
-              radius: 50,
-              backgroundImage: AssetImage("assets/images/display-Image.jpeg",)
-            ),
+                radius: 50,
+                backgroundImage: AssetImage(
+                  "assets/images/linkedInProfile.png",
+                )),
             const Spacer(),
             Text(
               "Muhammad Usman Siddiqui",
@@ -28,7 +28,7 @@ class myinfo extends StatelessWidget {
                   .bodyMedium!
                   .copyWith(color: Colors.white),
             ),
-            const Text("Flutter Developer & student of\nUBIT",
+            const Text("Flutter Developer",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.w200, height: 1.5)),
             const Spacer(flex: 2),

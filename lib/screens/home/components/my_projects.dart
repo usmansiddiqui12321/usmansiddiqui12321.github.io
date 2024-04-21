@@ -12,6 +12,7 @@ class MyProjects extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -21,10 +22,10 @@ class MyProjects extends StatelessWidget {
           ),
         ),
         const Responsive(
-          extrasmallmobile:ProjectsGridView(
+            extrasmallmobile: ProjectsGridView(
               childAspectRatio: 1.7,
               crossAxisCount: 1,
-            ), 
+            ),
             mobile: ProjectsGridView(
               childAspectRatio: 1.7,
               crossAxisCount: 1,

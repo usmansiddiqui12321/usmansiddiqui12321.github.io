@@ -17,6 +17,7 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: bgColor,
       child: Column(
         children: [
           const myinfo(),
