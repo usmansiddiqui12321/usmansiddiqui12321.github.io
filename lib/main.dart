@@ -35,3 +35,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//! TO Update Website
+//! First Create Build : flutter build web
+//! Secondly route: cd build/web
+//! to check status : git status
+//! git add .
+//! git commit -m "updated"
