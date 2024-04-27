@@ -16,7 +16,8 @@ class EducationCard extends StatelessWidget {
     return Container(
       width: 400,
       padding: const EdgeInsets.all(defaultPadding),
-      color: secondaryColor,
+      decoration: BoxDecoration(
+          color: secondaryColor, borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

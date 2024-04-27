@@ -22,17 +22,17 @@ class Coding extends StatelessWidget {
         ),
         const AnimatedLinearProgressIndicator(
           label: 'Dart',
-          percentage: .85,
+          percentage: .75,
         ),
         const SizedBox(height: defaultPadding / 2),
         const AnimatedLinearProgressIndicator(
-          label: 'Python',
-          percentage: .60,
+          label: 'MVC',
+          percentage: .80,
         ),
         const SizedBox(height: defaultPadding / 2),
         const AnimatedLinearProgressIndicator(
-          label: 'Java',
-          percentage: .40,
+          label: 'MVVM',
+          percentage: .80,
         ),
       ],
     );

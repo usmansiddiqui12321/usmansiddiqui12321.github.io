@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants.dart';
 
 // ignore: camel_case_types
 class myinfo extends StatelessWidget {
@@ -15,11 +16,26 @@ class myinfo extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(flex: 2),
-            const CircleAvatar(
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 70,
+                    blurStyle: BlurStyle.outer,
+                    spreadRadius: .4,
+                    color: primaryColor,
+                  )
+                ],
+              ),
+              child: CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage(
+                backgroundColor: primaryColor,
+                backgroundImage: const AssetImage(
                   "assets/images/linkedInProfile.png",
-                )),
+                ),
+              ),
+            ),
             const Spacer(),
             Text(
               "Muhammad Usman Siddiqui",

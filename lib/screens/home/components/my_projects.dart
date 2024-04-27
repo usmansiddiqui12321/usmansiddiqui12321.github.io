@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:portfolio/responsive.dart';
 import 'package:portfolio/screens/Detailed%20Screen/detailed_screen.dart';
 import '../../../constants.dart';
@@ -19,7 +20,7 @@ class MyProjects extends StatelessWidget {
           child: Text(
             "My Projects",
             style: Theme.of(context).textTheme.titleLarge,
-          ),
+          ).paddingOnly(bottom: 20),
         ),
         const Responsive(
             extrasmallmobile: ProjectsGridView(

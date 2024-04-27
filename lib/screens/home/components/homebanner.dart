@@ -1,9 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants.dart';
+import 'package:portfolio/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../constants.dart';
-import '../../../responsive.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
@@ -42,7 +42,12 @@ class HomeBanner extends StatelessWidget {
                 ),
                 if (!Responsive.isMobileLarge(context))
                   const SizedBox(height: defaultPadding / 2),
-                const AnimatedBuildText(),
+                const AnimatedBuildText(
+                  istop: true,
+                  textOne: "Responsive Web and Mobile Application",
+                  textTwo: "Complete E-Commerce App UI",
+                  textThree: "Chat App with Dark and Light Theme",
+                ),
                 const SizedBox(height: defaultPadding),
                 if (!Responsive.isMobileLarge(context))
                   ElevatedButton(
@@ -60,6 +65,22 @@ class HomeBanner extends StatelessWidget {
                       style: TextStyle(color: darkColor),
                     ),
                   ),
+                // const AnimatedBuildText(
+                //   istop: true,
+                //   textOne: "Responsive Web and Mobile Application",
+                //   textTwo: "Complete E-Commerce App UI",
+                //   textThree: "Chat App with Dark and Light Theme",
+                // ),
+                const SizedBox(height: defaultPadding / 2),
+                const AnimatedBuildText(
+                  istop: false,
+                  textOne:
+                      "Early projects mark my journey's start, still learning each day.",
+                  textTwo:
+                      "Always growing, exploring, expanding knowledge's vast domain.",
+                  textThree:
+                      "Portfolio site reflects progress, showcasing my evolving skills proudly.",
+                ),
               ],
             ),
           )
@@ -70,8 +91,15 @@ class HomeBanner extends StatelessWidget {
 }
 
 class AnimatedBuildText extends StatelessWidget {
+  final String textOne, textTwo, textThree;
+  final bool istop;
+
   const AnimatedBuildText({
     super.key,
+    required this.textOne,
+    required this.textTwo,
+    required this.textThree,
+    required this.istop,
   });
 
   @override
@@ -85,10 +113,19 @@ class AnimatedBuildText extends StatelessWidget {
           if (!Responsive.isMobileLarge(context)) const FlutterCodedText(),
           if (!Responsive.isMobileLarge(context))
             const SizedBox(width: defaultPadding / 2),
-          const Text("I build "),
+          istop ? const Text("I build ") : const SizedBox.shrink(),
           Responsive.isMobile(context)
-              ? const Expanded(child: AnimatedText())
-              : const AnimatedText(),
+              ? Expanded(
+                  child: AnimatedText(
+                  textOne: textOne,
+                  textTwo: textTwo,
+                  textThree: textThree,
+                ))
+              : AnimatedText(
+                  textOne: textOne,
+                  textTwo: textTwo,
+                  textThree: textThree,
+                ),
           if (!Responsive.isMobileLarge(context))
             const SizedBox(width: defaultPadding / 2),
           if (!Responsive.isMobileLarge(context)) const FlutterCodedText(),
@@ -99,20 +136,21 @@ class AnimatedBuildText extends StatelessWidget {
 }
 
 class AnimatedText extends StatelessWidget {
+  final String textOne, textTwo, textThree;
   const AnimatedText({
     super.key,
+    required this.textOne,
+    required this.textTwo,
+    required this.textThree,
   });
 
   @override
   Widget build(BuildContext context) {
     return AnimatedTextKit(
       animatedTexts: [
-        TyperAnimatedText("Responsive Web and Mobile Application",
-            speed: const Duration(milliseconds: 60)),
-        TyperAnimatedText("Complete E-Commerce App UI",
-            speed: const Duration(milliseconds: 60)),
-        TyperAnimatedText("Chat App with Dark and Light Theme",
-            speed: const Duration(milliseconds: 60)),
+        TyperAnimatedText(textOne, speed: const Duration(milliseconds: 60)),
+        TyperAnimatedText(textTwo, speed: const Duration(milliseconds: 60)),
+        TyperAnimatedText(textThree, speed: const Duration(milliseconds: 60)),
       ],
     );
   }

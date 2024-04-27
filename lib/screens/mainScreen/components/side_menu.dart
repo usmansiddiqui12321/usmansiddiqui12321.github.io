@@ -10,12 +10,42 @@ import 'my_info.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class SideMenu extends StatelessWidget {
+  String calculateAgeString(int birthYear, int birthMonth) {
+    DateTime currentDate = DateTime.now();
+    int currentYear = currentDate.year;
+    int currentMonth = currentDate.month;
+
+    int ageYears = currentYear - birthYear;
+    int ageMonths = currentMonth - birthMonth;
+
+    if (ageMonths < 0) {
+      ageYears--;
+      ageMonths += 12;
+    }
+
+    if (ageYears == 0) {
+      return '$ageMonths months old';
+    } else if (ageMonths == 0) {
+      return '$ageYears years old';
+    } else {
+      return '$ageYears';
+    }
+  }
+
+// void main() {
+
+//   print('Age string: $ageString');
+// }
+
   const SideMenu({
     super.key,
   });
-
+  final int birthYear = 2001; // Replace this with your birth year
+  final int birthMonth = 11;
   @override
   Widget build(BuildContext context) {
+    // Replace this with your birth month
+    String ageString = calculateAgeString(birthYear, birthMonth);
     return Drawer(
       backgroundColor: bgColor,
       child: Column(
@@ -34,9 +64,9 @@ class SideMenu extends StatelessWidget {
                     title: "City",
                     text: "Karachi",
                   ),
-                  const AreaInfoText(
+                  AreaInfoText(
                     title: "Age",
-                    text: "22",
+                    text: ageString,
                   ),
                   const Skills(),
                   const SizedBox(
@@ -49,7 +79,7 @@ class SideMenu extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         profile(
-                            'https://drive.google.com/uc?export=download&id=1QQU5ufh_5HP3cfzwZ4MCbbUtklEY5osL',
+                            'https://drive.google.com/uc?export=download&id=1UoFLIJ-_8rMlZaqVp1Pf3ZbkIHPwMqkS',
                             context);
                       },
                       child: FittedBox(

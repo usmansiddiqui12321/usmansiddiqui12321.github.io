@@ -30,10 +30,10 @@ class MainScreen extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //Each AnimatedContainer taking 50% screen size
+              //! Each AnimatedContainer taking 50% screen size
               if (Responsive.isDesktop(context))
                 Expanded(
-                  // (2+7 =9 ) so 2/9 =  0.22 => 22% of screen
+                  //! (2+7 =9 ) so 2/9 =  0.22 => 22% of screen
                   flex: 2,
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 1000),
