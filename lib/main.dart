@@ -41,3 +41,4 @@ class MyApp extends StatelessWidget {
 //! to check status : git status
 //! git add .
 //! git commit -m "updated"
+//! git push
