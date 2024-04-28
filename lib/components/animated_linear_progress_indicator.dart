@@ -4,38 +4,45 @@ import '../constants.dart';
 
 class AnimatedLinearProgressIndicator extends StatelessWidget {
   const AnimatedLinearProgressIndicator({
-    super.key,
+    Key? key,
     required this.label,
     required this.percentage,
-  });
+  }) : super(key: key);
+
   final String label;
   final double percentage;
 
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
-        tween: Tween<double>(begin: 0, end: percentage),
-        duration: defaultDuration,
-        builder: (context, double value, child) => Column(
+      tween: Tween<double>(begin: 0, end: percentage),
+      duration: defaultDuration,
+      builder: (context, double value, child) {
+        final roundedValue =
+            (value * 100).toStringAsFixed(0); // Round to 2 decimal places
+        return Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        label,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      Text("${value * 100}%")
-                    ]),
-                const SizedBox(
-                  height: defaultPadding / 2,
+                Text(
+                  label,
+                  style: const TextStyle(color: Colors.white),
                 ),
-                LinearProgressIndicator(
-                  value: value,
-                  color: primaryColor,
-                  backgroundColor: darkColor,
-                ),
+                Text("$roundedValue%") // Display the rounded value
               ],
-            ));
+            ),
+            const SizedBox(
+              height: defaultPadding / 2,
+            ),
+            LinearProgressIndicator(
+              value: value,
+              color: primaryColor,
+              backgroundColor: darkColor,
+            ),
+          ],
+        );
+      },
+    );
   }
 }

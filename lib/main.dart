@@ -42,3 +42,5 @@ class MyApp extends StatelessWidget {
 //! git add .
 //! git commit -m "updated"
 //! git push
+
+//! oneline: flutter build web;cd build/web;git status;git add .;git commit -m "updated";git push

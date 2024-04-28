@@ -47,6 +47,10 @@ class SideMenu extends StatelessWidget {
     // Replace this with your birth month
     String ageString = calculateAgeString(birthYear, birthMonth);
     return Drawer(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(0), bottomRight: Radius.circular(0)),
+      ),
       backgroundColor: bgColor,
       child: Column(
         children: [
