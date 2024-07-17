@@ -85018,7 +85018,7 @@ else return s}},
 I(a){var s=null,r=t.p
 return new A.JV(B.eV,B.hb,A.dy(A.a([B.Za,A.yF(A.afp(A.dy(A.a([B.zO,B.zN,new A.rv("Age",this.ah5(2001,11),s),B.Qw,B.bM,B.Ce,B.In,B.f2,B.bq,A.agK(A.axR(B.N,A.eW(A.a([A.bW("Download CV",s,s,A.vb(s,s,A.a0(a).p3.y.b,s,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s),B.ev,A.Cp("assets/icons/download.svg",s,s,s)],r),B.G,B.A,B.v),B.q,B.lC),new A.afm(a),s),B.B1],r),B.G,B.A,B.v),B.a1,B.dG,s,B.aK),1)],r),B.G,B.A,B.v),s)}}
 A.afm.prototype={
-$0(){A.rg("https://drive.google.com/uc?export=download&id=1QY-qxytBVGVX9L9yFbLQ7GEXoC9D_3tx",this.a)},
+$0(){A.rg("https://drive.google.com/uc?export=download&id=1wxvFmN5TtqXHRx6AHm5tzxrsWrUDCbKn",this.a)},
 $S:0}
 A.Ij.prototype={
 I(a){var s=null
