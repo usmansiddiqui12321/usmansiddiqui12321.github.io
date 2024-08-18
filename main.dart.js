@@ -87469,7 +87469,7 @@ else return s}},
 J(a){var s=null,r=t.p
 return new A.Ku(B.fm,B.hJ,A.dD(A.a([B.a0b,A.zb(A.PJ(A.dD(A.a([B.Ap,B.Ao,new A.rP("Age",this.ai8(2001,11),s),B.Sb,B.ch,B.CV,B.Jj,B.fx,B.bD,A.ahY(A.azE(B.O,A.e0(A.a([A.bN("Download CV",s,s,A.vD(s,s,A.Y(a).p2.y.b,s,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s),B.eQ,A.CW("assets/icons/download.svg",s,s,s)],r),B.C,B.B,B.v),B.r,B.ma),new A.agA(a),s),B.BG],r),B.C,B.B,B.v),B.a_,B.e3,s,B.aj),1)],r),B.C,B.B,B.v),s)}}
 A.agA.prototype={
-$0(){A.rB("https://drive.google.com/uc?export=download&id=1zCOc1beLtrgyUm0dOOz_PlBbZLcltXNI",this.a)},
+$0(){A.rB("https://drive.google.com/uc?export=download&id=1DcleYw24bHB-B72UWmOURhLBUr-f42Wg",this.a)},
 $S:0}
 A.IU.prototype={
 J(a){var s=null
